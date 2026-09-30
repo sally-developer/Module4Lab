@@ -1,0 +1,45 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Guthrie Theater";
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="showcase-card card border-0 shadow-lg rounded-4 overflow-hidden">
+                <div class="card-body p-4 p-md-5">
+                    <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+                        <div>
+                            <p class="text-uppercase text-primary fw-semibold mb-2 letter-spacing">Live Performance</p>
+                            <h1 class="display-5 fw-bold mb-0">Guthrie Theater</h1>
+                        </div>
+                        <span class="badge rounded-pill bg-dark-subtle text-dark px-3 py-2 fs-6">@Model.Shows.Length shows</span>
+                    </div>
+
+                    <h2 class="h4 text-secondary mb-3">Current Shows</h2>
+
+                    <ul class="list-group list-group-flush rounded-4 border overflow-hidden">
+                        @for (int i = 0; i < Model.Shows.Length; i++)
+                        {
+                            <li class="list-group-item d-flex justify-content-between align-items-center py-3 px-3">
+                                <span>
+                                    <span class="fw-bold text-primary me-2">@(i + 1).</span>
+                                    @Model.Shows[i]
+                                </span>
+                                @if (Model.Shows[i].Length > 5)
+                                {
+                                    <span class="badge text-bg-light border">Long title</span>
+                                }
+                            </li>
+                        }
+                    </ul>
+
+                    <p class="mb-0 mt-4 text-muted fs-5">
+                        Out of @Model.Shows.Length shows, @Model.LongTitleCount have a title longer than 5 letters.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

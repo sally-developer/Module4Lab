@@ -1,0 +1,1 @@
+![App screenshot - Guthrie Theater](Images/lab4.png)
